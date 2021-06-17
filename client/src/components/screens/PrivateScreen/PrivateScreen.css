@@ -1,0 +1,27 @@
+.private-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.private-screen__topBar {
+  width: 100%;
+  text-align: center;
+  background: green;
+  color: white;
+  padding: 3px 0;
+}
+
+.private-screen__welcomeSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  margin-top: 30px;
+}
