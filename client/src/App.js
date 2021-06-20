@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import PrivateRoute from "./components/routing/PrivateRoute";
+import PrivateRoute from "./routing/PrivateRoute";
 
-import PrivateScreen from "./components/screens/PrivateScreen/PrivateScreen";
-import LoginScreen from "./components/screens/LoginScreen/LoginScreen";
-import RegisterScreen from "./components/screens/RegisterScreen/RegisterScreen";
-import ForgotPasswordScreen from "./components/screens/ForgotPasswordScreen/ForgotPasswordScreen";
-import ResetPasswordScreen from "./components/screens/ResetPasswordScreen/ResetPasswordScreen";
+import PrivateScreen from "./screens/PrivateScreen/PrivateScreen";
+import LoginScreen from "./screens/LoginScreen/LoginScreen";
+import RegisterScreen from "./screens/RegisterScreen/RegisterScreen";
+import ForgotPasswordScreen from "./screens/ForgotPasswordScreen/ForgotPasswordScreen";
+import ResetPasswordScreen from "./screens/ResetPasswordScreen/ResetPasswordScreen";
 
 function App() {
   return (
