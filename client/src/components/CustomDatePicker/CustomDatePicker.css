@@ -1,0 +1,65 @@
+.date-row {
+  /* margin-top: 15px; */
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: whitesmoke; */
+  border-radius: 5px;
+  padding: 20px 5px;
+}
+
+.date-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dayOfWeek {
+  font-size: 11px;
+  color: #ababab;
+  margin-top: -10px;
+}
+
+.day {
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: rgb(97, 97, 97);
+  border: 1px solid rgb(219, 219, 219);
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.date-component:hover {
+  opacity: 0.75;
+}
+
+.date-component:nth-child(5) {
+  margin-top: -10px;
+}
+
+.date-component:nth-child(5) .dayOfWeek {
+  color: #111;
+}
+
+.date-component:nth-child(5) .day {
+  color: #7870ff;
+  background-color: #e8e7ff;
+}
+
+.navDateIcon {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.navDateIcon:hover {
+  background-color: #4338f8;
+  color: #eee;
+}
