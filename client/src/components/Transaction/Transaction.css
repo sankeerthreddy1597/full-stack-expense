@@ -1,0 +1,35 @@
+.transaction-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.transaction-container:hover {
+  background-color: #eee;
+}
+
+.transaction-container .transactionLeft {
+  display: flex;
+  align-items: center;
+}
+
+.transactionIcon {
+  margin-right: 30px;
+  border: 1px solid #eee;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.transactionTitle {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.transactionDate {
+  font-size: 12px;
+  color: #adadad;
+}

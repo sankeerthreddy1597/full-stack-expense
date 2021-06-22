@@ -1,0 +1,15 @@
+.transactionList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 20px;
+  height: 100%;
+  overflow: auto;
+}
+
+.hr-transactionList {
+  border-top: 1px solid #fdfcfc;
+  margin: 5px 0;
+  width: 90%;
+  align-self: flex-end;
+}
