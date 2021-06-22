@@ -2,6 +2,7 @@ import React from "react";
 import "./HomeScreen.css";
 import { BsFillCalendarFill, BsFillPlusCircleFill } from "react-icons/bs";
 import CustomDatePicker from "../../components/CustomDatePicker/CustomDatePicker";
+import BalanceSummary from "../../components/BalanceSummary/BalanceSummary";
 
 const HomeScreen = () => {
   return (
@@ -32,6 +33,9 @@ const HomeScreen = () => {
           </div>
           <div className="innerRow">
             <CustomDatePicker />
+          </div>
+          <div className="innerRow">
+            <BalanceSummary />
           </div>
         </div>
         <div className="col-5">Right side</div>

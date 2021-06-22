@@ -1,0 +1,32 @@
+.left,
+.right {
+  display: flex;
+}
+
+.balanceSection {
+  margin: 0 10px;
+  padding: 0 10px;
+}
+
+.balance-title {
+  color: #bcbcbc;
+  font-weight: 100;
+  font-size: 14px;
+}
+
+.amount {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.income {
+  color: rgb(92, 180, 92);
+}
+
+.expense {
+  color: rgb(238, 175, 57);
+}
+
+.total {
+  font-size: 24px;
+}

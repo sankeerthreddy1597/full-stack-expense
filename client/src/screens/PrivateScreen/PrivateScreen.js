@@ -27,12 +27,10 @@ const PrivateScreen = ({ history }) => {
 
       try {
         const { data } = await axios.get("/api/private", config);
-        console.log(localStorage.getItem("authToken"));
         //setPrivateDate(data.data);
         setUsername(data.userData.username);
         setEmail(data.userData.email);
       } catch (error) {
-        console.log("Reached Here");
         localStorage.removeItem("authToken");
         setError("You are not Authorized, please login");
       }
