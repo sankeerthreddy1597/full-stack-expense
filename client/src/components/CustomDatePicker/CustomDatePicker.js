@@ -29,7 +29,7 @@ const CustomDatePicker = () => {
         />
         {datePickerRange.map((ele, index) => {
           return (
-            <div className="date-component">
+            <div className="date-component" key={index}>
               <p className="dayOfWeek">
                 <Moment add={{ days: ele }} format="ddd">
                   {date}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./TopNavBar.css";
 import { FaBars, FaSearch } from "react-icons/fa";
 
-const TopNavBar = ({ history, username, email, onLogout }) => {
+const TopNavBar = ({ username, email, onLogout }) => {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);

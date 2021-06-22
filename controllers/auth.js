@@ -129,7 +129,8 @@ exports.resetpassword = async (req, res, next) => {
 };
 
 //Send JWT signed Token for login and registration
-const sendToken = (user, statusCode, res) => {
-  const token = user.getSignedToken();
+const sendToken = async (user, statusCode, res) => {
+  const token = await user.getSignedToken();
+  //console.log(user, token);
   res.status(statusCode).json({ success: true, token });
 };

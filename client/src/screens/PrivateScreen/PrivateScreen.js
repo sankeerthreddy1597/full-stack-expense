@@ -12,6 +12,7 @@ const PrivateScreen = ({ history }) => {
   const [email, setEmail] = useState("");
 
   useEffect(() => {
+    //console.log(localStorage.getItem("authToken"));
     if (!localStorage.getItem("authToken")) {
       history.push("/login");
     }
@@ -26,16 +27,18 @@ const PrivateScreen = ({ history }) => {
 
       try {
         const { data } = await axios.get("/api/private", config);
+        console.log(localStorage.getItem("authToken"));
         //setPrivateDate(data.data);
         setUsername(data.userData.username);
         setEmail(data.userData.email);
       } catch (error) {
+        console.log("Reached Here");
         localStorage.removeItem("authToken");
         setError("You are not Authorized, please login");
       }
     };
     fetchPrivateData();
-  });
+  }, [history]);
 
   const logoutHandler = () => {
     localStorage.removeItem("authToken");
@@ -57,12 +60,7 @@ const PrivateScreen = ({ history }) => {
     //   </div>
     // </div>
     <>
-      <TopNavBar
-        username={username}
-        email={email}
-        history={history}
-        onLogout={logoutHandler}
-      />
+      <TopNavBar username={username} email={email} onLogout={logoutHandler} />
       <HomeScreen />
     </>
   );

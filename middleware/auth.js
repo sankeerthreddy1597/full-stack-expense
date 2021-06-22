@@ -9,7 +9,7 @@ exports.protect = async (req, res, next) => {
     req.headers.authorization &&
     req.headers.authorization.startsWith("Bearer")
   ) {
-    token = req.headers.authorization.split(" ")[1];
+    token = await req.headers.authorization.split(" ")[1];
   }
 
   if (!token) {
@@ -17,7 +17,7 @@ exports.protect = async (req, res, next) => {
   }
 
   try {
-    const decode = jwt.verify(token, process.env.JWT_SECRET);
+    const decode = await jwt.verify(token, process.env.JWT_SECRET);
 
     // const user = User.findById(decode.id);
 
@@ -42,6 +42,6 @@ exports.protect = async (req, res, next) => {
     next();
   } catch (error) {
     console.log("Error: " + error);
-    return next(new ErrorResponse("Not authrorized to access this route", 401));
+    return next(new ErrorResponse("Error accessing this route", 401));
   }
 };
