@@ -5,6 +5,7 @@ import CustomDatePicker from "../../components/CustomDatePicker/CustomDatePicker
 import BalanceSummary from "../../components/BalanceSummary/BalanceSummary";
 import TransactionList from "../../components/TransactionList/TransactionList";
 import OverviewCard from "../../components/OverviewCard/OverviewCard";
+import CategoryList from "../../components/CategoryList/CategoryList";
 
 const HomeScreen = () => {
   return (
@@ -56,6 +57,12 @@ const HomeScreen = () => {
               <OverviewCard title="Expense" amount="121.23" change="43.23" />
               <OverviewCard title="Income" amount="151.23" change="53.23" />
             </div>
+          </div>
+          <div className="innerRowSmall">
+            <p className="categoryOverview">Expenses by Category</p>
+          </div>
+          <div className="innerRowSmall">
+            <CategoryList />
           </div>
         </div>
       </div>

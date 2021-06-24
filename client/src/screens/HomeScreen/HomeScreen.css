@@ -39,6 +39,15 @@
   margin: 10px auto;
 }
 
+.innerRowSmall:last-child {
+  overflow: auto;
+  margin-top: -15px;
+}
+
+.innerRowSmall:nth-child(3) {
+  margin-top: -5px;
+}
+
 .cardwrapper {
   margin-top: -10px;
   display: flex;
@@ -120,7 +129,8 @@
   opacity: 0.85;
 }
 
-.weeklyOverview {
+.weeklyOverview,
+.categoryOverview {
   margin: 10px 5%;
   padding: 0 5px;
   font-size: 18px;

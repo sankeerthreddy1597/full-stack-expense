@@ -1,0 +1,42 @@
+.category-body {
+  margin-bottom: 10px;
+  padding: 15px 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #dfdfdf;
+  border-radius: 5px;
+  /* background-color: rgba(255, 155, 0, 0.05); */
+}
+
+.catLeft {
+  display: flex;
+  align-items: center;
+}
+
+.progressSpinner {
+  margin-right: 25px;
+  height: 50px;
+  width: 50px;
+  border: 9px solid orange;
+  border-radius: 50%;
+}
+
+.cat__title {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgb(170, 170, 170);
+  letter-spacing: 1px;
+}
+
+.cat__amount {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.cat__percent {
+  font-size: 14px;
+  color: orange;
+}
