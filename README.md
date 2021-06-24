@@ -6,6 +6,12 @@
 
 - Further improvements can be done to add visualizations based on the data provided by the user.
 
+- This is a snapshot of the UI that has been implemented up unitl now
+
+<p align="center">
+<img src="./assets/UI-Progress.png" width=80%>
+</p>
+
 # Getting Started
 
 - To run this project, clone it

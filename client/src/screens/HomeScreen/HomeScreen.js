@@ -4,6 +4,7 @@ import { BsFillCalendarFill, BsFillPlusCircleFill } from "react-icons/bs";
 import CustomDatePicker from "../../components/CustomDatePicker/CustomDatePicker";
 import BalanceSummary from "../../components/BalanceSummary/BalanceSummary";
 import TransactionList from "../../components/TransactionList/TransactionList";
+import OverviewCard from "../../components/OverviewCard/OverviewCard";
 
 const HomeScreen = () => {
   return (
@@ -43,7 +44,20 @@ const HomeScreen = () => {
             <TransactionList />
           </div>
         </div>
-        <div className="col-5">Right side</div>
+        <div className="col-5">
+          <div className="innerRowSmall">
+            <p className="weeklyBudgetBanner">Set Up Weekly Budget</p>
+          </div>
+          <div className="innerRowSmall">
+            <p className="weeklyOverview">Weekly Overview</p>
+          </div>
+          <div className="innerRowSmall">
+            <div className="cardwrapper">
+              <OverviewCard title="Expense" amount="121.23" change="43.23" />
+              <OverviewCard title="Income" amount="151.23" change="53.23" />
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

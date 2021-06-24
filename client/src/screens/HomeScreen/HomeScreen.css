@@ -30,6 +30,22 @@
   padding: 0 20px;
   margin-top: 20px;
 }
+
+.innerRowSmall {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 0 10px;
+  margin: 10px auto;
+}
+
+.cardwrapper {
+  margin-top: -10px;
+  display: flex;
+  width: 100%;
+  padding: 0 5px;
+  justify-content: space-around;
+}
 .innerRow:first-child {
   margin-top: 5px;
 }
@@ -83,4 +99,30 @@
   align-self: center;
   border-top: 1px solid #ebebeb;
   margin-top: 10px;
+}
+
+.weeklyBudgetBanner {
+  margin-top: 20px;
+  width: 90%;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #eee;
+  background-color: #4832ea;
+  padding: 10px 0;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px #333;
+  cursor: pointer;
+  margin: auto;
+}
+
+.weeklyBudgetBanner:hover {
+  opacity: 0.85;
+}
+
+.weeklyOverview {
+  margin: 10px 5%;
+  padding: 0 5px;
+  font-size: 18px;
+  font-weight: 500;
 }
