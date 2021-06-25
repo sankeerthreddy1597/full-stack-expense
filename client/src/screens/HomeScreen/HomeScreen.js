@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./HomeScreen.css";
 import { BsFillCalendarFill, BsFillPlusCircleFill } from "react-icons/bs";
 import CustomDatePicker from "../../components/CustomDatePicker/CustomDatePicker";
@@ -8,6 +8,10 @@ import OverviewCard from "../../components/OverviewCard/OverviewCard";
 import CategoryList from "../../components/CategoryList/CategoryList";
 
 const HomeScreen = () => {
+  //UseEffect to call the API
+  useEffect(() => {
+    //Axios get API
+  }, []);
   return (
     <>
       <div className="row">
