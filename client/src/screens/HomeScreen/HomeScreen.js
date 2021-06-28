@@ -7,7 +7,7 @@ import TransactionList from "../../components/TransactionList/TransactionList";
 import OverviewCard from "../../components/OverviewCard/OverviewCard";
 import CategoryList from "../../components/CategoryList/CategoryList";
 
-const HomeScreen = () => {
+const HomeScreen = ({ transactions }) => {
   //UseEffect to call the API
   useEffect(() => {
     //Axios get API
@@ -46,7 +46,7 @@ const HomeScreen = () => {
           </div>
           <hr className="hr-separation" />
           <div className="innerRow">
-            <TransactionList />
+            <TransactionList transactions={transactions} />
           </div>
         </div>
         <div className="col-5">

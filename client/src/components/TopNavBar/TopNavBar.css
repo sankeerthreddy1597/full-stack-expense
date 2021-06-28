@@ -89,6 +89,15 @@
   transition: 500ms ease-in;
 }
 
+@media (max-width: 1000px) {
+  input {
+    display: none;
+  }
+  .search-icon {
+    display: none;
+  }
+}
+
 /* Extra side bar css */
 
 /* .nav-menu {

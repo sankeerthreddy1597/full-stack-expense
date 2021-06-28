@@ -10,6 +10,7 @@ const PrivateScreen = ({ history }) => {
   // const [privateData, setPrivateDate] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [transactions, setTransactions] = useState({});
 
   useEffect(() => {
     //console.log(localStorage.getItem("authToken"));
@@ -27,9 +28,11 @@ const PrivateScreen = ({ history }) => {
 
       try {
         const { data } = await axios.get("/api/private", config);
+        const transact = await axios.get("/api/private/transactions", config);
         //setPrivateDate(data.data);
         setUsername(data.userData.username);
         setEmail(data.userData.email);
+        setTransactions(transact.data.transactions);
       } catch (error) {
         localStorage.removeItem("authToken");
         setError("You are not Authorized, please login");
@@ -59,7 +62,7 @@ const PrivateScreen = ({ history }) => {
     // </div>
     <>
       <TopNavBar username={username} email={email} onLogout={logoutHandler} />
-      <HomeScreen />
+      <HomeScreen transactions={transactions} />
     </>
   );
 };

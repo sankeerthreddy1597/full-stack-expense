@@ -7,7 +7,7 @@ import { AiOutlineCar } from "react-icons/ai";
 
 import "./TransactionList.css";
 
-const TransactionList = () => {
+const TransactionList = ({ transactions }) => {
   return (
     <div className="transactionList">
       <Transaction

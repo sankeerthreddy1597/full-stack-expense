@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+const TransactionSchema = require("./Transaction.js");
+
 const UserSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -23,6 +25,7 @@ const UserSchema = new mongoose.Schema({
     minlength: 6,
     select: false,
   },
+  transactions: [TransactionSchema],
   resetPasswordToken: String,
   resetPasswordExpire: Date,
 });
