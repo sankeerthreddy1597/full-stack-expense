@@ -1,0 +1,58 @@
+.dialog-container {
+  padding: 1.5rem 3rem;
+  min-width: 500px;
+}
+
+hr {
+  margin: 10px 0;
+  border-top: 1px solid lightgray;
+}
+
+.dialog__select {
+  padding: 5px;
+  margin: 5px;
+}
+
+.dialog__select label {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.dialog__select select {
+  padding: 5px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
+
+.dialog__transactionName {
+  padding: 5px;
+  margin: 5px;
+}
+
+.transactionName {
+  width: 65%;
+  padding: 5px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  padding-left: 10px;
+}
+
+.dialog__submit {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 5px;
+}
+
+.dialog__btn {
+  padding: 5px 25px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  color: white;
+  background-color: #4338f8;
+  font-size: 18px;
+  cursor: pointer;
+}

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./HomeScreen.css";
 import { BsFillCalendarFill, BsFillPlusCircleFill } from "react-icons/bs";
 import CustomDatePicker from "../../components/CustomDatePicker/CustomDatePicker";
@@ -7,11 +7,25 @@ import TransactionList from "../../components/TransactionList/TransactionList";
 import OverviewCard from "../../components/OverviewCard/OverviewCard";
 import CategoryList from "../../components/CategoryList/CategoryList";
 
+import AddTransaction from "../../components/AddTransaction/AddTransaction";
+
 const HomeScreen = ({ transactions }) => {
+  const [open, setOpen] = useState(false);
+  const [selectedValue, setSelectedValue] = useState(1);
   //UseEffect to call the API
   useEffect(() => {
     //Axios get API
   }, []);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (value) => {
+    setOpen(false);
+    setSelectedValue(value);
+  };
+
   return (
     <>
       <div className="row">
@@ -28,6 +42,12 @@ const HomeScreen = ({ transactions }) => {
                 size={28}
                 color="#4338f8"
                 className="addTransaction"
+                onClick={handleClickOpen}
+              />
+              <AddTransaction
+                selectedValue={selectedValue}
+                open={open}
+                onClose={handleClose}
               />
             </div>
           </div>

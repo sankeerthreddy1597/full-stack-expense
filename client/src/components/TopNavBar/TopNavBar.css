@@ -90,7 +90,7 @@
 }
 
 @media (max-width: 1000px) {
-  input {
+  .right__input {
     display: none;
   }
   .search-icon {

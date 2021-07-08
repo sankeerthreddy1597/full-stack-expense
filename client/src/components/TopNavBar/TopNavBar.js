@@ -16,7 +16,7 @@ const TopNavBar = ({ username, email, onLogout }) => {
           <div className="appTitle">Expense Tracker</div>
         </div>
         <div className="rightSection">
-          <input type="text" placeholder="search..." />
+          <input type="text" className="right__input" placeholder="search..." />
           <FaSearch size={18} className="search-icon" />
           <div className="separation"></div>
           <div className="profileSection">
