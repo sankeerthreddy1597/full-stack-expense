@@ -5,11 +5,16 @@ import moment from "moment";
 
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
-const CustomDatePicker = () => {
+const CustomDatePicker = ({ dateChange }) => {
   const [date, setDate] = useState(moment.now());
   const datePickerRange = [-3, -2, -1, 0, 1, 2, 3];
 
-  useEffect(() => {}, [date]);
+  const handleDateChange = () => {
+    dateChange(date);
+  };
+  useEffect(() => {
+    handleDateChange();
+  }, [date]);
 
   const prevDateClickHandler = () => {
     setDate(moment(date).add(-1, "days"));

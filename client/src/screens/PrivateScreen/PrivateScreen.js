@@ -32,9 +32,15 @@ const PrivateScreen = ({ history }) => {
         //setPrivateDate(data.data);
         setUsername(data.userData.username);
         setEmail(data.userData.email);
+
         setTransactions(transact.data.transactions);
+        localStorage.setItem(
+          "transactionItems",
+          JSON.stringify(transact.data.transactions)
+        );
       } catch (error) {
         localStorage.removeItem("authToken");
+        localStorage.removeItem("transactionItems");
         setError("You are not Authorized, please login");
       }
     };
@@ -43,6 +49,7 @@ const PrivateScreen = ({ history }) => {
 
   const logoutHandler = () => {
     localStorage.removeItem("authToken");
+    localStorage.removeItem("transactionItems");
     history.push("/login");
   };
 
@@ -62,7 +69,7 @@ const PrivateScreen = ({ history }) => {
     // </div>
     <>
       <TopNavBar username={username} email={email} onLogout={logoutHandler} />
-      <HomeScreen transactions={transactions} />
+      <HomeScreen transaction={transactions} />
     </>
   );
 };

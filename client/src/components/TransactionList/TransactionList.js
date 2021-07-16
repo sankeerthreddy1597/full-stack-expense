@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Transaction from "../Transaction/Transaction";
 import { GiMoneyStack, GiElectric } from "react-icons/gi";
 import { IoFastFoodOutline } from "react-icons/io5";
 import { MdLocalGroceryStore } from "react-icons/md";
 import { AiOutlineCar } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import Moment from "react-moment";
 
 import "./TransactionList.css";
+import { getTransactionByDate } from "../../redux/actions/transactions";
 
-const TransactionList = ({ transactions }) => {
+const TransactionList = ({ transactions, date }) => {
+  const dispatch = useDispatch();
+  const s = useSelector((state) => state.transactionReducer);
+  useEffect(() => {
+    dispatch(getTransactionByDate(date));
+  }, [date]);
   return (
     <div className="transactionList">
       <Transaction
