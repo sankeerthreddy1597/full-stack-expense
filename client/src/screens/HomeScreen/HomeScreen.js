@@ -79,7 +79,7 @@ const HomeScreen = () => {
             <CustomDatePicker dateChange={handleDateChange} />
           </div>
           <div className="innerRow">
-            <BalanceSummary date={date} />
+            <BalanceSummary />
           </div>
           <hr className="hr-separation" />
           <div className="innerRow">

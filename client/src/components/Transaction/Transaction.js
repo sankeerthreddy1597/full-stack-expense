@@ -3,21 +3,22 @@ import "./Transaction.css";
 import Moment from "react-moment";
 import moment from "moment";
 
-const Transaction = ({ Icon }) => {
-  const date = moment.now();
+const Transaction = ({ Icon, transactionDetails }) => {
   return (
     <div className="transaction-container">
       <div className="transactionLeft">
         {Icon}
         <div className="description">
-          <p className="transactionTitle">Weekly Bonus</p>
+          <p className="transactionTitle">{transactionDetails.title}</p>
           <p className="transactionDate">
-            <Moment format="DD MMM YY, hh:mm A">{date}</Moment>
+            <Moment format="DD MMM YY, hh:mm A">
+              {transactionDetails.createdOn}
+            </Moment>
           </p>
         </div>
       </div>
       <div className="transactionRight">
-        <p className="transactionAmount">$155.21</p>
+        <p className="transactionAmount">${transactionDetails.amount}</p>
       </div>
     </div>
   );
