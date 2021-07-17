@@ -10,6 +10,7 @@ body {
   background: rgb(255, 255, 255);
   color: #333;
   height: 100vh;
+  min-width: 520px;
   overflow-y: hidden;
 }
 
@@ -72,4 +73,10 @@ body {
   color: #fff;
   text-align: center;
   margin: 0.5rem 0;
+}
+
+@media (max-width: 520px) {
+  body {
+    height: 100%;
+  }
 }
