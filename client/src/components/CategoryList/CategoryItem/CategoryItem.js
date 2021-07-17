@@ -7,6 +7,7 @@ const CategoryItem = ({ title, amount, percent }) => {
     groceries: "#F6A64222",
     utilities: "#43C5F522",
     automobile: "#0D004E22",
+    other: "#eeeeee",
   };
 
   const barColorMap = {
@@ -14,6 +15,7 @@ const CategoryItem = ({ title, amount, percent }) => {
     groceries: "9px solid #F6A642",
     utilities: "9px solid #43C5F5",
     automobile: " 9px solid #0D004E",
+    other: "9px solid #777777",
   };
 
   const percentColorMap = {
@@ -21,6 +23,7 @@ const CategoryItem = ({ title, amount, percent }) => {
     groceries: "#F6A642",
     utilities: "#43C5F5",
     automobile: " #0D004E",
+    other: "#777777",
   };
   return (
     <div
