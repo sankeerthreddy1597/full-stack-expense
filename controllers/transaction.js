@@ -6,7 +6,7 @@ exports.getTransactions = async (req, res, next) => {
     const user = await req.user;
     res.status(200).json({
       success: true,
-      transactions: user.transactions,
+      transactions: await user.transactions,
     });
   } catch (error) {}
 };
