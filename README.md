@@ -4,7 +4,10 @@
 
 - This is a full stack (MERN) expense tracker app which has login and singup authentication implemented with jwt tokens. Forgotpasswrod and resetpassword with token generation has also been implemented. After login the user will have details about his account like email and username and will be able to log transactions like income and expenditure and have basic details of how much money has been spent and how much income came in in a time period.
 
-- Further improvements can be done to add visualizations based on the data provided by the user.
+- Currently Working on:
+
+  - Edit and update transaction using redux (UI and server side)
+  - Delete transaction using redux (server side and client API call)
 
 - This is a snapshot of the UI that has been implemented up unitl now
 
