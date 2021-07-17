@@ -1,12 +1,20 @@
 import Dialog from "@material-ui/core/Dialog";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./AddTransaction.css";
 
+import { addTransaction } from "../../redux/actions/transactions";
+import { useDispatch } from "react-redux";
+
 const AddTransaction = ({ onClose, selectedValue, open }) => {
+  const dispatch = useDispatch();
   const [transactionType, setTransactionType] = useState("income");
   const [category, setCategory] = useState("foodAndBeverages");
   const [transactionTitle, setTransactionTitle] = useState("");
-  const [amount, setAmount] = useState(null);
+  const [amount, setAmount] = useState("");
+  const [error, setError] = useState(false);
+
+  useEffect(() => {}, [error]);
+
   const handleClose = () => {
     onClose(selectedValue);
   };
@@ -25,6 +33,24 @@ const AddTransaction = ({ onClose, selectedValue, open }) => {
 
   const handleAmountChange = (e) => {
     setAmount(parseInt(e.target.value));
+  };
+
+  const handleAddTransaction = () => {
+    if (transactionType === "" || amount === "" || parseFloat(amount) <= 0) {
+      setError(true);
+    } else {
+      const newTransaction = {
+        title: transactionTitle,
+        amount: parseFloat(amount),
+        type: transactionType,
+        category: transactionType === "income" ? "income" : category,
+      };
+      dispatch(addTransaction(newTransaction));
+      onClose(selectedValue);
+      setTransactionType("income");
+      setTransactionTitle("");
+      setAmount("");
+    }
   };
   return (
     <Dialog
@@ -88,7 +114,10 @@ const AddTransaction = ({ onClose, selectedValue, open }) => {
         </div>
         <hr />
         <div className="dialog__submit">
-          <button className="dialog__btn">Submit</button>
+          {error && <p>Please Enter valid details</p>}
+          <button className="dialog__btn" onClick={handleAddTransaction}>
+            Submit
+          </button>
         </div>
       </div>
     </Dialog>

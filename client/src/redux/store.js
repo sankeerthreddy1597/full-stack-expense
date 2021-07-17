@@ -4,7 +4,7 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 const transactionsFromStorage = localStorage.getItem("transactionItems")
-  ? JSON.parse(localStorage.getItem("transactionItems"))
+  ? []
   : [];
 
 const initialState = {

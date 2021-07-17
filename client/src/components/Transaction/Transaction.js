@@ -1,7 +1,6 @@
 import React from "react";
 import "./Transaction.css";
 import Moment from "react-moment";
-import moment from "moment";
 
 const Transaction = ({ Icon, transactionDetails }) => {
   return (

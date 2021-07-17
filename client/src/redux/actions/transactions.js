@@ -4,6 +4,7 @@ import {
   GET_ALL_TRANSACTIONS,
   UPDATE_TRANSACTION,
   DELETE_TRANSACTION,
+  ADD_TRANSACTIION,
 } from "../actionConstants/transactionConstants";
 
 const config = {
@@ -19,5 +20,17 @@ export const getAllTransactions = () => async (dispatch, getState) => {
   dispatch({
     type: GET_ALL_TRANSACTIONS,
     payload: transactions.data.transactions,
+  });
+};
+
+export const addTransaction = (transaction) => async (dispatch, getState) => {
+  const { data } = await axios.post(
+    "/api/private/addtransaction",
+    transaction,
+    config
+  );
+  dispatch({
+    type: ADD_TRANSACTIION,
+    payload: data.transaction,
   });
 };

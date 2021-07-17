@@ -9,11 +9,11 @@ const CustomDatePicker = ({ dateChange }) => {
   const [date, setDate] = useState(moment.now());
   const datePickerRange = [-3, -2, -1, 0, 1, 2, 3];
 
-  const handleDateChange = () => {
-    dateChange(date);
-  };
+  // const handleDateChange = () => {
+  //   dateChange(date);
+  // };
   useEffect(() => {
-    handleDateChange();
+    //handleDateChange();
   }, [date]);
 
   const prevDateClickHandler = () => {

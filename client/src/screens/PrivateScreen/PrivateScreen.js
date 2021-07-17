@@ -28,15 +28,13 @@ const PrivateScreen = ({ history }) => {
 
       try {
         const { data } = await axios.get("/api/private", config);
-        const transact = await axios.get("/api/private/transactions", config);
-        //setPrivateDate(data.data);
         setUsername(data.userData.username);
         setEmail(data.userData.email);
+        setTransactions(data.transactions);
 
-        setTransactions(transact.data.transactions);
         localStorage.setItem(
           "transactionItems",
-          JSON.stringify(transact.data.transactions)
+          JSON.stringify(data.transactions)
         );
       } catch (error) {
         localStorage.removeItem("authToken");

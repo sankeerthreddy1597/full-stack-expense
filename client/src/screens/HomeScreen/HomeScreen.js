@@ -9,26 +9,20 @@ import CategoryList from "../../components/CategoryList/CategoryList";
 
 import AddTransaction from "../../components/AddTransaction/AddTransaction";
 
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
-import { GET_ALL_TRANSACTIONS } from "../../redux/actionConstants/transactionConstants";
 import { getAllTransactions } from "../../redux/actions/transactions";
-
-import moment from "moment";
 
 const HomeScreen = () => {
   const [open, setOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState(1);
-  const [date, setDate] = useState(moment.now());
 
   const dispatch = useDispatch();
-  const useTransactions = useSelector((state) => state.transactionReducer);
-
   //UseEffect to call the API
   useEffect(() => {
     //Axios get API
     dispatch(getAllTransactions());
-  }, [date]);
+  }, [dispatch]);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -37,10 +31,6 @@ const HomeScreen = () => {
   const handleClose = (value) => {
     setOpen(false);
     setSelectedValue(value);
-  };
-
-  const handleDateChange = (date) => {
-    setDate(date);
   };
 
   return (
@@ -76,14 +66,14 @@ const HomeScreen = () => {
             />
           </div>
           <div className="innerRow">
-            <CustomDatePicker dateChange={handleDateChange} />
+            <CustomDatePicker />
           </div>
           <div className="innerRow">
             <BalanceSummary />
           </div>
           <hr className="hr-separation" />
           <div className="innerRow">
-            <TransactionList transactions={useTransactions} date={date} />
+            <TransactionList />
           </div>
         </div>
         <div className="col-5">

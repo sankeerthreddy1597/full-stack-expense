@@ -39,6 +39,8 @@ exports.protect = async (req, res, next) => {
     });
     req.user = userData;
     res.locals.user = userData;
+    // console.log(decode, userData, res.locals.user);
+    // console.log("this is res", res.locals.user);
     next();
   } catch (error) {
     console.log("Error: " + error);
