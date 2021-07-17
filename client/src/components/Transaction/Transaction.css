@@ -6,10 +6,13 @@
   cursor: pointer;
   padding: 10px;
   border-radius: 5px;
+  transition: all 0.3s ease-in-out;
 }
 
 .transaction-container:hover {
-  background-color: #eee;
+  background-color: rgb(243, 243, 243);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease-in-out;
 }
 
 .transaction-container .transactionLeft {
@@ -32,4 +35,21 @@
 .transactionDate {
   font-size: 12px;
   color: #adadad;
+}
+
+.transactionRight {
+  display: flex;
+  align-items: center;
+}
+
+.transaction__actionIcon {
+  margin-left: 15px;
+  border: 1px solid lightgray;
+  padding: 5px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.transaction__actionIcon:hover {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
 }

@@ -7,12 +7,12 @@ import {
   ADD_TRANSACTIION,
 } from "../actionConstants/transactionConstants";
 
-const config = {
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-  },
-};
+// const config = {
+//   headers: {
+//     "Content-Type": "application/json",
+//     Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+//   },
+// };
 
 export const getAllTransactions = () => async (dispatch, getState) => {
   const config = {
