@@ -34,13 +34,13 @@ exports.protect = async (req, res, next) => {
       if (err) {
         return next(new ErrorResponse("No user found with this ID", 404));
       } else {
-        userData = docs;
+        req.user = docs;
+        // console.log(
+        //   "THIS IS DOCS ______________________________________________________",
+        //   req.user
+        // );
       }
     });
-    req.user = userData;
-    res.locals.user = userData;
-    // console.log(decode, userData, res.locals.user);
-    // console.log("this is res", res.locals.user);
     next();
   } catch (error) {
     console.log("Error: " + error);

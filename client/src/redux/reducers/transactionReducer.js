@@ -8,6 +8,7 @@ import {
 export const transactionReducer = (state = { transactions: [] }, action) => {
   switch (action.type) {
     case GET_ALL_TRANSACTIONS:
+      //console.log("transaction: ", action.payload);
       return { ...state, transactions: action.payload };
     case ADD_TRANSACTIION:
       return {

@@ -1,23 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Transaction from "../Transaction/Transaction";
 import { GiMoneyStack, GiElectric } from "react-icons/gi";
 import { IoFastFoodOutline } from "react-icons/io5";
 import { MdLocalGroceryStore } from "react-icons/md";
 import { AiOutlineCar, AiFillFileUnknown } from "react-icons/ai";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 import "./TransactionList.css";
-import { getAllTransactions } from "../../redux/actions/transactions";
 
 const TransactionList = () => {
-  const dispatch = useDispatch();
   const transactions = useSelector(
     (state) => state.transactionReducer.transactions
   );
 
-  useEffect(() => {
-    //dispatch(getAllTransactions());
-  }, [transactions, dispatch]);
   const transactionCategory = {
     income: (
       <GiMoneyStack className="transactionIcon" size={40} color="#168212" />
@@ -54,14 +49,14 @@ const TransactionList = () => {
     <div className="transactionList">
       {transactions.map((transaction, index) => {
         return (
-          <>
+          <div key={index}>
             <Transaction
               key={transaction._id}
               Icon={transactionCategory[transaction.category]}
               transactionDetails={transaction}
             />
             <hr key={index} className="hr-transactionList" />
-          </>
+          </div>
         );
       })}
     </div>

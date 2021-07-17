@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./HomeScreen.css";
 import { BsFillCalendarFill, BsFillPlusCircleFill } from "react-icons/bs";
 import CustomDatePicker from "../../components/CustomDatePicker/CustomDatePicker";
@@ -9,20 +9,9 @@ import CategoryList from "../../components/CategoryList/CategoryList";
 
 import AddTransaction from "../../components/AddTransaction/AddTransaction";
 
-import { useDispatch } from "react-redux";
-
-import { getAllTransactions } from "../../redux/actions/transactions";
-
 const HomeScreen = () => {
   const [open, setOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState(1);
-
-  const dispatch = useDispatch();
-  //UseEffect to call the API
-  useEffect(() => {
-    //Axios get API
-    dispatch(getAllTransactions());
-  }, [dispatch]);
 
   const handleClickOpen = () => {
     setOpen(true);

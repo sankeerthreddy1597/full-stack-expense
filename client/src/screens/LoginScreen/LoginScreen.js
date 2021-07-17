@@ -3,11 +3,15 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "./LoginScreen.css";
 
+import { useDispatch } from "react-redux";
+import { getAllTransactions } from "../../redux/actions/transactions";
+
 const LoginScreen = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  const dispatch = useDispatch();
   useEffect(() => {
     if (localStorage.getItem("authToken")) {
       history.push("/");
@@ -33,6 +37,7 @@ const LoginScreen = ({ history }) => {
       localStorage.setItem("authToken", data.token);
 
       history.push("/");
+      dispatch(getAllTransactions());
     } catch (error) {
       setError(error.response.data.error);
       setTimeout(() => {

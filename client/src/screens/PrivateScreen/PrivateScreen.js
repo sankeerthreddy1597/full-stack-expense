@@ -4,6 +4,10 @@ import "./PrivateScreen.css";
 
 import TopNavBar from "../../components/TopNavBar/TopNavBar";
 import HomeScreen from "../HomeScreen/HomeScreen";
+import { Redirect } from "react-router-dom";
+
+import { getAllTransactions } from "../../redux/actions/transactions";
+import { useDispatch } from "react-redux";
 
 const PrivateScreen = ({ history }) => {
   const [error, setError] = useState("");
@@ -11,6 +15,8 @@ const PrivateScreen = ({ history }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [transactions, setTransactions] = useState({});
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     //console.log(localStorage.getItem("authToken"));
@@ -36,6 +42,8 @@ const PrivateScreen = ({ history }) => {
           "transactionItems",
           JSON.stringify(data.transactions)
         );
+
+        dispatch(getAllTransactions());
       } catch (error) {
         localStorage.removeItem("authToken");
         localStorage.removeItem("transactionItems");
@@ -43,7 +51,7 @@ const PrivateScreen = ({ history }) => {
       }
     };
     fetchPrivateData();
-  }, [history]);
+  }, [history, dispatch]);
 
   const logoutHandler = () => {
     localStorage.removeItem("authToken");
@@ -52,7 +60,10 @@ const PrivateScreen = ({ history }) => {
   };
 
   return error ? (
-    <span className="error-message">{error}</span>
+    <>
+      <span className="error-message">{error}</span>
+      <Redirect to="/login" />
+    </>
   ) : (
     // <div className="private-screen">
     //   <TopNavBar />
