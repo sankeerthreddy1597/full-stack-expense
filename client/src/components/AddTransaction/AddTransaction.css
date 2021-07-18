@@ -56,3 +56,13 @@ hr {
   font-size: 18px;
   cursor: pointer;
 }
+
+.error_box {
+  position: absolute;
+  right: 250px;
+  color: white;
+  background-color: #e34439;
+  padding: 3px 10px;
+  border: 1px solid indianred;
+  border-radius: 5px;
+}

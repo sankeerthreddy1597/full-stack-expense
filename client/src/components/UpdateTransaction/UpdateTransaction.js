@@ -33,6 +33,9 @@ const UpdateTransaction = ({ onClose, selectedValue, open, transaction }) => {
 
   const handleUpdateTransaction = () => {
     if (transactionTitle === "" || amount === "" || parseFloat(amount) <= 0) {
+      setTimeout(() => {
+        setError(false);
+      }, 3000);
       setError(true);
     } else {
       const newTransaction = {
@@ -109,7 +112,7 @@ const UpdateTransaction = ({ onClose, selectedValue, open, transaction }) => {
         </div>
         <hr />
         <div className="dialog__submit">
-          {error && <p>Please Enter valid details</p>}
+          {error && <p className="error_box">Please Enter valid details</p>}
           <button className="dialog__btn" onClick={handleUpdateTransaction}>
             Submit
           </button>

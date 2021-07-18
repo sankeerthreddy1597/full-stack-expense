@@ -36,7 +36,10 @@ const AddTransaction = ({ onClose, selectedValue, open }) => {
   };
 
   const handleAddTransaction = () => {
-    if (transactionType === "" || amount === "" || parseFloat(amount) <= 0) {
+    if (transactionTitle === "" || amount === "" || parseFloat(amount) <= 0) {
+      setTimeout(() => {
+        setError(false);
+      }, 3000);
       setError(true);
     } else {
       const newTransaction = {
@@ -50,6 +53,7 @@ const AddTransaction = ({ onClose, selectedValue, open }) => {
       setTransactionType("income");
       setTransactionTitle("");
       setAmount("");
+      setError(false);
     }
   };
   return (
@@ -114,7 +118,7 @@ const AddTransaction = ({ onClose, selectedValue, open }) => {
         </div>
         <hr />
         <div className="dialog__submit">
-          {error && <p>Please Enter valid details</p>}
+          {error && <p className="error_box">Please Enter valid details</p>}
           <button className="dialog__btn" onClick={handleAddTransaction}>
             Submit
           </button>
