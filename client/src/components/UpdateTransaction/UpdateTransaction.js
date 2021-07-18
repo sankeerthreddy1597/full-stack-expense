@@ -14,7 +14,10 @@ const UpdateTransaction = ({ onClose, selectedValue, open, transaction }) => {
   const [amount, setAmount] = useState(transaction.amount);
   const [error, setError] = useState(false);
 
-  useEffect(() => {}, [error, transactionTitle, amount]);
+  useEffect(() => {
+    setTransactionTitle(transaction.title);
+    setAmount(transaction.amount);
+  }, [error, transaction.title, transaction.amount]);
 
   const handleClose = () => {
     onClose(selectedValue);
