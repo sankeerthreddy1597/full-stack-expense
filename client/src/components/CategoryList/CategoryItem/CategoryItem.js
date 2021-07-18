@@ -12,7 +12,10 @@ const CategoryItem = ({ title, amount, percent }) => {
   );
 
   transactionDetails.map((transaction) => {
-    if (transaction.category === title.replace(/\s+/g, "")) {
+    if (
+      transaction.category.toLowerCase() ===
+      title.replace(/\s+/g, "").toLowerCase()
+    ) {
       currAmount += transaction.amount;
     }
     if (transaction.type !== "income") {

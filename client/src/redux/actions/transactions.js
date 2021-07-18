@@ -64,19 +64,21 @@ export const updateTransaction = (id) => async (dispatch, getState) => {
   });
 };
 
-export const deleteTransaction = (id) => async (dispatch, getState) => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-    },
+export const deleteTransaction =
+  (id, transaction) => async (dispatch, getState) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+      },
+    };
+    const { data } = await axios.put(
+      `/api/private/deletetransaction/${id}`,
+      transaction.filter((t) => t._id !== id),
+      config
+    );
+    dispatch({
+      type: DELETE_TRANSACTION,
+      payload: data.id,
+    });
   };
-  const { data } = await axios.delete(
-    `/api/private/deletetransaction/${id}`,
-    config
-  );
-  dispatch({
-    type: DELETE_TRANSACTION,
-    payload: data,
-  });
-};

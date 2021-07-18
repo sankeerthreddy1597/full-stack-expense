@@ -40,3 +40,24 @@ exports.addTransaction = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.deleteTransaction = async (res, req, next) => {
+  const transactionId = req.req.params.id;
+  const user = await User.findById(req.req.user._id);
+  try {
+    if (user) {
+      user.transactions = req.req.body;
+      const updatedTransactions = await user.save();
+      // console.log(updatedTransactions.transactions);
+      res.res.status(202).json({
+        success: true,
+        updated: updatedTransactions.transactions,
+        id: transactionId,
+      });
+    } else {
+      new ErrorResponse("No user found - No access to this route ", 401);
+    }
+  } catch (error) {
+    next(error);
+  }
+};

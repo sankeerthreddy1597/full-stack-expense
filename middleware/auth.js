@@ -29,7 +29,6 @@ exports.protect = async (req, res, next) => {
     // res.locals.user = user;
 
     //Using the rr, docs method to send data from middleware to route
-    let userData;
     await User.findById(decode.id, function (err, docs) {
       if (err) {
         return next(new ErrorResponse("No user found with this ID", 404));
