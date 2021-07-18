@@ -31,6 +31,10 @@ const TransactionList = () => {
         color="#f5a742"
       />
     ),
+    utilities: (
+      <GiElectric className="transactionIcon" size={40} color="#42c5f5" />
+    ),
+    //TODO - remove duplicate after adjusting and adding delete API
     Utilities: (
       <GiElectric className="transactionIcon" size={40} color="#42c5f5" />
     ),

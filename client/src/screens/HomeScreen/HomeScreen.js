@@ -74,7 +74,11 @@ const HomeScreen = () => {
           </div>
           <div className="innerRowSmall">
             <div className="cardwrapper">
-              <OverviewCard title="Expense" amount="121.23" change="43.23" />
+              <OverviewCard
+                title="Expenditure"
+                amount="121.23"
+                change="43.23"
+              />
               <OverviewCard title="Income" amount="151.23" change="53.23" />
             </div>
           </div>
