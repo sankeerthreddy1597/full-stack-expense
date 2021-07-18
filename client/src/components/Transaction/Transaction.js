@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Transaction.css";
 import Moment from "react-moment";
+import UpdateTransaction from "../UpdateTransaction/UpdateTransaction";
 
 import { useDispatch, useSelector } from "react-redux";
 import { deleteTransaction } from "../../redux/actions/transactions";
@@ -13,11 +14,21 @@ const Transaction = ({ Icon, transactionDetails }) => {
     (state) => state.transactionReducer.transactions
   );
 
+  const [open, setOpen] = useState(false);
+  const [selectedValue, setSelectedValue] = useState(1);
+
+  const handleClose = (value) => {
+    setOpen(false);
+    setSelectedValue(value);
+  };
+
   const deleteTransactionHandler = () => {
     dispatch(deleteTransaction(transactionDetails._id, allTransactions));
   };
 
-  const updateTransactionHandler = () => {};
+  const updateTransactionHandler = () => {
+    setOpen(true);
+  };
   return (
     <div className="transaction-container">
       <div className="transactionLeft">
@@ -44,6 +55,12 @@ const Transaction = ({ Icon, transactionDetails }) => {
           size={30}
           color="#4380fa"
           onClick={updateTransactionHandler}
+        />
+        <UpdateTransaction
+          selectedValue={selectedValue}
+          open={open}
+          transaction={transactionDetails}
+          onClose={handleClose}
         />
       </div>
     </div>

@@ -47,22 +47,31 @@ export const addTransaction = (transaction) => async (dispatch, getState) => {
   });
 };
 
-export const updateTransaction = (id) => async (dispatch, getState) => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-    },
+export const updateTransaction =
+  (newTransaction, allTransactions) => async (dispatch, getState) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+      },
+    };
+    allTransactions.forEach((transaction) => {
+      if (transaction._id === newTransaction.id) {
+        transaction.title = newTransaction.title;
+        transaction.amount = newTransaction.amount;
+        transaction.updatedOn = newTransaction.updatedOn;
+      }
+    });
+    const { data } = await axios.put(
+      `/api/private/updatetransaction/${newTransaction.id}`,
+      allTransactions,
+      config
+    );
+    dispatch({
+      type: UPDATE_TRANSACTION,
+      payload: data.updatedTransactions,
+    });
   };
-  const { data } = await axios.put(
-    `/api/private/updatetransaction/${id}`,
-    config
-  );
-  dispatch({
-    type: UPDATE_TRANSACTION,
-    payload: data,
-  });
-};
 
 export const deleteTransaction =
   (id, transaction) => async (dispatch, getState) => {

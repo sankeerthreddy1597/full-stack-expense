@@ -16,7 +16,10 @@ export const transactionReducer = (state = { transactions: [] }, action) => {
         transactions: [action.payload, ...state.transactions],
       };
     case UPDATE_TRANSACTION:
-      return state;
+      return {
+        ...state,
+        transactions: action.payload,
+      };
     case DELETE_TRANSACTION:
       return {
         ...state,
